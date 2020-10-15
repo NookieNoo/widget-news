@@ -1,8 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { WebpackPluginServe: Serve } = require('webpack-plugin-serve');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const WebpackBar = require('webpackbar');
 
 module.exports = {
   entry: "./src/index.js",
@@ -20,7 +20,15 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ]
   },
   plugins: [
@@ -29,6 +37,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new WebpackNotifierPlugin(),
+    new WebpackBar({ reporters: [ 'profile'], profile: true })
   ],
   watch: true,
   mode: 'development',
@@ -37,4 +46,13 @@ module.exports = {
     contentBase: './dist',
     hot: true,
   },
+  resolve: {
+    alias: {
+      '@app': path.resolve(__dirname, 'src/'),
+      '@app-universal': path.resolve(__dirname, 'src/components/universal/'),
+      '@app-pages': path.resolve(__dirname, 'src/components/pages/'),
+      '@images': path.resolve(__dirname, 'public/images/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+    }
+  }
 };

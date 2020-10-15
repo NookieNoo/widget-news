@@ -1,14 +1,20 @@
-import { func } from "prop-types";
-import React, { Component } from "react";
-import Header from './Header.js';
+import React from "react";
+import Header from '@app-universal/Header';
+import Footer from '@app-universal/Footer';
+import RecordsList from '@app-pages/index/RecordsList';
 
-import '../styles/App.css';
+import '@styles/style.css';
 
 function App(props) {
-    return <div>
-    <Header />
-        <h1>Hello World</h1>
-    </div>;
+    return (
+        <div>
+            <Header />
+            <RecordsList />
+            <Footer
+                isLogged={false}
+            />
+        </div>
+    );
 }
 
 export default App;
