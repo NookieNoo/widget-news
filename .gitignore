@@ -1,4 +1,4 @@
 /nbproject/*
 /node_modules/
 .idea/
-public/dist/*
+dist/*
