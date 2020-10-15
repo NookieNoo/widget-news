@@ -2,16 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { WebpackPluginServe: Serve } = require('webpack-plugin-serve');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
-const { join } = require('path');
-const outputPath = join(process.cwd(), '/dist');
-const options = { 
-    port: 22001,
-    static: outputPath,
-    progress: 'minimal',
-    liveReload: true,
-    status: true,
- };
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
   entry: "./src/index.js",
@@ -36,10 +27,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html"
     }),
-    new Serve(options),
     new CleanWebpackPlugin(),
-    
+    new WebpackNotifierPlugin(),
   ],
   watch: true,
-  mode: 'development'
+  mode: 'development',
+  devtool: 'eval-source-map',
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+  },
 };
