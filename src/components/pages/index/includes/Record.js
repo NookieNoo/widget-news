@@ -1,14 +1,14 @@
 import React from "react";
-import format from 'date-fns/format'
+import format from 'date-fns/format';
 
 function Record(props) {
     return (
         <li>
             <h2>
-                <span className='pubDate'>{format(new Date, "dd MMMM")}</span>
+                <span className='pubDate'>{format(new Date, "dd.MM.yyyy")}</span>
                 <a href="#">Извлечение данных</a>
-                <span className='category'>324</span>
-                <span className='category'>324</span>
+                <span className='category'>in <a href="">324</a></span>
+                <span className='category'>in <a href="">324</a></span>
             </h2>
             <p className='summary'>
                 Рассмотрим задачу извлечения данных более подробно

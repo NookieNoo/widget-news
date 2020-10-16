@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function Footer(props) {
     const { isLogged } = props;
@@ -17,3 +18,7 @@ function Footer(props) {
 }
 
 export default Footer;
+
+Footer.propTypes = {
+    isLogged: PropTypes.bool.isRequired,
+};
