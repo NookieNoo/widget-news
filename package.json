@@ -36,6 +36,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "date-fns": "^2.16.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
