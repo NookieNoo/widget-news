@@ -13,7 +13,8 @@ function RecordsList(props) {
         () => {
             axios({
                 method: "get",
-                url: "http://widget-news.loc/articles",
+                // url: "http://widget-news.loc/articles",
+                url: "http://localhost:21555/posts",
                 responseType: "application/json"
             }).then((response) => {
                 console.log(response);
