@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/frontend/index.js',
@@ -42,6 +43,23 @@ module.exports = {
         new WebpackBar({ reporters: ['profile'], profile: true }),
         new webpack.DefinePlugin({
             'process.env': JSON.stringify(process.env),
+        }),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.resolve(__dirname, 'src/frontend/favicon.ico'),
+        //         to: path.resolve(__dirname, 'dist'),
+        //     },
+        // ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/frontend/favicon.ico'),
+                    to: path.resolve(__dirname, 'dist'),
+                },
+            ],
+            options: {
+                concurrency: 100,
+            },
         }),
     ],
     watch: true,
