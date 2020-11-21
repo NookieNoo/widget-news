@@ -1,11 +1,26 @@
 const path = require('path');
-require('dotenv').config();
+const dotenv = require('dotenv');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+
+const dotEnvPath = './.env';
+const localDotEnvPath = './.env.local';
+
+var env = dotenv.config({path: dotEnvPath}).parsed;
+try {
+	if (fs.existsSync(localDotEnvPath)) {
+		let envLocal = dotenv.config({path: localDotEnvPath}).parsed;
+		env = {...env, ...envLocal} // объединяем конфигурации
+	}
+} catch (err) {
+	console.error(localDotEnvPath + ' file:', err);
+}
 
 module.exports = {
     entry: './src/frontend/index.js',
@@ -42,14 +57,8 @@ module.exports = {
         new WebpackNotifierPlugin(),
         new WebpackBar({ reporters: ['profile'], profile: true }),
         new webpack.DefinePlugin({
-            'process.env': JSON.stringify(process.env),
+            'process.env': JSON.stringify(env),
         }),
-        // new CopyWebpackPlugin([
-        //     {
-        //         from: path.resolve(__dirname, 'src/frontend/favicon.ico'),
-        //         to: path.resolve(__dirname, 'dist'),
-        //     },
-        // ]),
         new CopyWebpackPlugin({
             patterns: [
                 {
@@ -68,7 +77,7 @@ module.exports = {
     devServer: {
         contentBase: './dist',
         hot: true,
-        port: process.env.FRONTEND_PORT,
+        port: env.FRONTEND_PORT,
     },
     resolve: {
         alias: {
