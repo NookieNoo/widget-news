@@ -11,7 +11,6 @@ function RecordsList(props) {
     });
 
     const successCallback = (response) => {
-        console.log('response', response);
         setState((pr) => {
             return { ...pr, items: response.data, isDataLoaded: true };
         });
@@ -21,7 +20,6 @@ function RecordsList(props) {
         getArticlesList(successCallback);
     }, []);
 
-    console.log(state);
     return state.isDataLoaded ? (
         <div>
             <ul id="headlines">
