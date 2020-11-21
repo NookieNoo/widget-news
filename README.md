@@ -1,1 +1,1 @@
-# WidgetNews-react
+# Widget News
