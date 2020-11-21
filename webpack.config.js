@@ -7,7 +7,7 @@ const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/frontend/index.js',
     output: {
         path: path.join(__dirname, '/dist'),
         filename: '[contenthash].bundle.js',
@@ -35,7 +35,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: './src/frontend/index.html',
         }),
         new CleanWebpackPlugin(),
         new WebpackNotifierPlugin(),
@@ -54,13 +54,13 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@app': path.resolve(__dirname, 'src/'),
-            '@app-universal': path.resolve(__dirname, 'src/components/universal/'),
-            '@app-pages': path.resolve(__dirname, 'src/components/pages/'),
-            '@app-helpers': path.resolve(__dirname, 'src/helpers/'),
-            '@app-actions': path.resolve(__dirname, 'src/actions/index.js'),
+            '@app': path.resolve(__dirname, 'src/frontend'),
+            '@app-universal': path.resolve(__dirname, 'src/frontend/components/universal/'),
+            '@app-pages': path.resolve(__dirname, 'src/frontend/components/pages/'),
+            '@app-helpers': path.resolve(__dirname, 'src/frontend/helpers/'),
+            '@app-actions': path.resolve(__dirname, 'src/frontend/actions/index.js'),
             '@images': path.resolve(__dirname, 'public/images/'),
-            '@styles': path.resolve(__dirname, 'src/styles/'),
+            '@styles': path.resolve(__dirname, 'src/frontend/styles/'),
         },
     },
 };

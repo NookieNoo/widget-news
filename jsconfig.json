@@ -5,25 +5,25 @@
         "baseUrl": "./",
         "paths": {
             "@app/*": [
-                "src/*"
+                "src/frontend/*"
             ],
             "@app-universal/*": [
-                "src/components/universal/*"
+                "src/frontend/components/universal/*"
             ],
             "@app-pages/*": [
-                "src/components/pages/*"
+                "src/frontend/components/pages/*"
             ],
             "@app-helpers/*": [
-                "src/helpers/*"
+                "src/frontend/helpers/*"
             ],
             "@app-actions": [
-                "src/actions/index.js"
+                "src/frontend/actions/index.js"
             ],
             "@images/*": [
                 "public/images/*"
             ],
             "@styles/*": [
-                "src/styles/*"
+                "src/frontend/styles/*"
             ],
         }
     },
