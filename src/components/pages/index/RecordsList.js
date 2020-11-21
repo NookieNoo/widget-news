@@ -10,29 +10,19 @@ function RecordsList(props) {
         isDataLoaded: false,
     });
 
-    React.useEffect(() => {
-        const data = getArticlesList();
-        getArticlesList().then(data => console.log('data', data));
-
+    const successCallback = (response) => {
+        console.log('response', response);
         setState((pr) => {
-            return { ...pr, items: data, isDataLoaded: true };
+            return { ...pr, items: response.data, isDataLoaded: true };
         });
+    };
 
-        // axios({
-        //     method: 'get',
-        //     url: `${backendUrl}articles`,
-        //     responseType: 'application/json',
-        // }).then((response) => {
-        //     console.log(response);
-        //     setState((pr) => {
-        //         return { ...pr, items: response.data, isDataLoaded: true };
-        //     });
-        // });
+    React.useEffect(() => {
+        getArticlesList(successCallback);
     }, []);
 
-
     console.log(state);
-    return (
+    return state.isDataLoaded ? (
         <div>
             <ul id="headlines">
                 {state.items
@@ -42,7 +32,7 @@ function RecordsList(props) {
                     : null}
             </ul>
         </div>
-    );
+    ) : null;
 }
 
 export default RecordsList;

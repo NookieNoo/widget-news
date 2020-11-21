@@ -1,46 +1,47 @@
 {
-  "name": "widgetnews-react",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
-    "build": "webpack --mode production",
-    "backend": "json-server --p 29002 --watch src/backend/db.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NookieNoo/WidgetNews-react.git"
-  },
-  "author": "NookieNoo <biv0208@yandex.ru>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NookieNoo/WidgetNews-react/issues"
-  },
-  "homepage": "https://github.com/NookieNoo/WidgetNews-react#readme",
-  "devDependencies": {
-    "@babel/core": "^7.12.0",
-    "@babel/preset-env": "^7.12.0",
-    "@babel/preset-react": "^7.10.4",
-    "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^5.0.0",
-    "file-loader": "^6.1.1",
-    "html-webpack-plugin": "^5.0.0-alpha.1",
-    "style-loader": "^2.0.0",
-    "webpack": "^5.1.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-notifier": "^1.8.0",
-    "webpack-plugin-serve": "^1.1.0",
-    "webpackbar": "^4.0.0"
-  },
-  "dependencies": {
-    "axios": "^0.20.0",
-    "date-fns": "^2.16.1",
-    "dotenv": "^8.2.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
-  }
+    "name": "widgetnews-react",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack-dev-server --open",
+        "build": "webpack --mode production",
+        "backend": "json-server --p 29002 --watch src/backend/db.json"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NookieNoo/WidgetNews-react.git"
+    },
+    "author": "NookieNoo <biv0208@yandex.ru>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NookieNoo/WidgetNews-react/issues"
+    },
+    "homepage": "https://github.com/NookieNoo/WidgetNews-react#readme",
+    "devDependencies": {
+        "@babel/core": "^7.12.0",
+        "@babel/plugin-transform-runtime": "^7.12.1",
+        "@babel/preset-env": "^7.12.0",
+        "@babel/preset-react": "^7.10.4",
+        "babel-loader": "^8.1.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^5.0.0",
+        "file-loader": "^6.1.1",
+        "html-webpack-plugin": "^5.0.0-alpha.1",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.1.1",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0",
+        "webpack-notifier": "^1.8.0",
+        "webpack-plugin-serve": "^1.1.0",
+        "webpackbar": "^4.0.0"
+    },
+    "dependencies": {
+        "axios": "^0.20.0",
+        "date-fns": "^2.16.1",
+        "dotenv": "^8.2.0",
+        "react": "^16.14.0",
+        "react-dom": "^16.14.0"
+    }
 }

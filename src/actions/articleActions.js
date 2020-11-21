@@ -1,20 +1,11 @@
 import axios from 'axios';
 import { backendUrl } from '@app-helpers/clientConfig';
 
-export const getArticlesList = () => {
-    axios({
-        method: 'get',
-        url: `${backendUrl}articles`,
-        responseType: 'application/json',
-    }).then((response) => {
-        return response.data;
-    });
-};
-
-async function getUser() {
+export const getArticlesList = async (successCallback) => {
     try {
-        const response = await axios.get('/user?ID=12345');
-        console.log(response);
+        const response = await axios.get(`${backendUrl}articles?_expand=category&_expand=subcategory`);
+        successCallback(response);
+
     } catch (error) {
         console.error(error);
     }
