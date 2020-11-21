@@ -1,7 +1,5 @@
 import React from 'react';
 import Record from '@app-pages/index/includes/Record';
-import axios from 'axios';
-import { backendUrl } from '@app-helpers/clientConfig';
 import { getArticlesList } from '@app-actions';
 
 function RecordsList(props) {
