@@ -1,4 +1,5 @@
 const path = require("path");
+require('dotenv').config();
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
@@ -45,6 +46,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     hot: true,
+    port: process.env.FRONTEND_PORT,
   },
   resolve: {
     alias: {
