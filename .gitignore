@@ -1,0 +1,6 @@
+/nbproject/*
+/node_modules/
+.idea/
+dist/*
+public/uploads/*
+*-local.php
