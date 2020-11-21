@@ -13,6 +13,12 @@
             "@app-pages/*": [
                 "src/components/pages/*"
             ],
+            "@app-helpers/*": [
+                "src/helpers/*"
+            ],
+            "@app-actions": [
+                "src/actions/index.js"
+            ],
             "@images/*": [
                 "public/images/*"
             ],

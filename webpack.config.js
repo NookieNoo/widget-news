@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const WebpackBar = require('webpackbar');
+const webpack = require('webpack');
 
 module.exports = {
   entry: "./src/index.js",
@@ -38,7 +39,10 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new WebpackNotifierPlugin(),
-    new WebpackBar({ reporters: [ 'profile'], profile: true })
+    new WebpackBar({ reporters: [ 'profile'], profile: true }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
+    })
   ],
   watch: true,
   mode: 'development',
@@ -53,6 +57,8 @@ module.exports = {
       '@app': path.resolve(__dirname, 'src/'),
       '@app-universal': path.resolve(__dirname, 'src/components/universal/'),
       '@app-pages': path.resolve(__dirname, 'src/components/pages/'),
+      '@app-helpers': path.resolve(__dirname, 'src/helpers/'),
+      '@app-actions': path.resolve(__dirname, 'src/actions/index.js'),
       '@images': path.resolve(__dirname, 'public/images/'),
       '@styles': path.resolve(__dirname, 'src/styles/'),
     }
