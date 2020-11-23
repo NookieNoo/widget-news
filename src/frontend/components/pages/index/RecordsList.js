@@ -1,7 +1,5 @@
 import React from 'react';
 import Record from '@app-pages/index/includes/Record';
-import axios from 'axios';
-import { backendUrl } from '@app-helpers/clientConfig';
 import { getArticlesList } from '@app-actions';
 
 function RecordsList(props) {
@@ -11,7 +9,6 @@ function RecordsList(props) {
     });
 
     const successCallback = (response) => {
-        console.log('response', response);
         setState((pr) => {
             return { ...pr, items: response.data, isDataLoaded: true };
         });
@@ -21,7 +18,6 @@ function RecordsList(props) {
         getArticlesList(successCallback);
     }, []);
 
-    console.log(state);
     return state.isDataLoaded ? (
         <div>
             <ul id="headlines">

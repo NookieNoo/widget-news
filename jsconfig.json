@@ -4,31 +4,14 @@
         "module": "commonjs",
         "baseUrl": "./",
         "paths": {
-            "@app/*": [
-                "src/*"
-            ],
-            "@app-universal/*": [
-                "src/components/universal/*"
-            ],
-            "@app-pages/*": [
-                "src/components/pages/*"
-            ],
-            "@app-helpers/*": [
-                "src/helpers/*"
-            ],
-            "@app-actions": [
-                "src/actions/index.js"
-            ],
-            "@images/*": [
-                "public/images/*"
-            ],
-            "@styles/*": [
-                "src/styles/*"
-            ],
+            "@app/*": ["src/frontend/*"],
+            "@app-universal/*": ["src/frontend/components/universal/*"],
+            "@app-pages/*": ["src/frontend/components/pages/*"],
+            "@app-helpers/*": ["src/frontend/helpers/*"],
+            "@app-actions": ["src/frontend/actions/index.js"],
+            "@images/*": ["public/images/*"],
+            "@styles/*": ["src/frontend/styles/*"]
         }
     },
-    "exclude": [
-        "node_modules",
-        "vendor"
-    ]
+    "exclude": ["node_modules", "vendor"]
 }

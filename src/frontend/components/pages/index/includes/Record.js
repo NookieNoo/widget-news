@@ -3,7 +3,7 @@ import format from 'date-fns/format';
 import PropTypes from 'prop-types';
 
 function Record(props) {
-    const { id, category, publicationDate, content, summary, title } = props.data;
+    const { id, category, subcategory, publicationDate, content, summary, title } = props.data;
 
     console.log('props.data', props.data);
 
@@ -16,7 +16,7 @@ function Record(props) {
                     in <a href="">{category.name}</a>
                 </span>
                 <span className="category">
-                    in <a href="">{category.name}</a>
+                    in <a href="">{subcategory.name}</a>
                 </span>
             </h2>
             <p className="summary">{summary}</p>
