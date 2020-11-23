@@ -2,50 +2,67 @@ import React from 'react';
 import Header from '@app-universal/Header';
 import Footer from '@app-universal/Footer';
 import RecordsList from '@app-pages/index/RecordsList';
-
-import { Container, AppBar, Toolbar, IconButton, Typography, Button, Box } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import { makeStyles } from '@material-ui/styles';
+import { Container, Grid, Paper, Typography, Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
+    mainFeaturesPost: {
+        position: 'relative',
+        color: theme.palette.common.white,
+        marginBottom: theme.spacing(4),
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
     },
-    menuButton: {
-        marginRight: theme.spacing(1), //по умоллчанию 8px
+    overlay: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        right: 0,
+        left: 0,
+        backgroundOverlay: 'rgba(0, 0, 0, 0.3)',
     },
-    title: {
-        flexGrow: 1,
+    mainFeaturesPostContent: {
+        position: 'relative',
+        padding: theme.spacing(9),
     },
 }));
-
 function App(props) {
     const classes = useStyles();
-
     return (
-        <AppBar position="fixed">
-            <Container fixed>
-                <Toolbar>
-                    <IconButton
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        className={classes.menuButton}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography className={classes.title}>Widget News</Typography>
-                    <Box mr={3}>
-                        <Button color="inherit" variant="outlined">
-                            Log in
-                        </Button>
-                    </Box>
-                    <Button color="secondary" variant="contained">
-                        Sign Up
-                    </Button>
-                </Toolbar>
-            </Container>
-        </AppBar>
+        <>
+            <Header />
+            <main>
+                <Paper
+                    className={classes.mainFeaturesPost}
+                    style={{ backgroundImage: 'url(https://source.unsplash.com/random)' }}
+                >
+                    <Container maxWidth="lg">
+                        <Grid container>
+                            <div className={classes.overlay} />
+                            <Grid item md={6}>
+                                <div className={classes.mainFeaturesPostContent}>
+                                    <Typography
+                                        component="h1"
+                                        variant="h3"
+                                        color="inherit"
+                                        gutterBottom
+                                    >
+                                        Web Developer Blog
+                                    </Typography>
+                                    <Typography variant="h5" paragraph color="inherit" gutterBottom>
+                                        Lorem ipsum dolor sit amet, c
+                                    </Typography>
+                                    <Button variant="contained" color="secondary">
+                                        Learn more
+                                    </Button>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </Container>
+                </Paper>
+            </main>
+        </>
     );
 }
 
