@@ -1,14 +1,27 @@
 import React from 'react';
 import logo from '@images/logo.jpg';
 
-import { Container, AppBar, Toolbar, IconButton, Typography, Button, Box } from '@material-ui/core';
+import {
+    Container,
+    AppBar,
+    Toolbar,
+    IconButton,
+    Typography,
+    Button,
+    Box,
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogContentText,
+    DialogActions,
+    TextField,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 
+// import TextField from '@material-ui/core/TextField';
+
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
     menuButton: {
         marginRight: theme.spacing(1), //по умоллчанию 8px
     },
@@ -19,6 +32,16 @@ const useStyles = makeStyles((theme) => ({
 
 function Header(props) {
     const classes = useStyles();
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <AppBar position="fixed">
             <Container fixed>
@@ -33,9 +56,42 @@ function Header(props) {
                     </IconButton>
                     <Typography className={classes.title}>Widget News</Typography>
                     <Box mr={3}>
-                        <Button color="inherit" variant="outlined">
+                        <Button color="inherit" variant="outlined" onClick={handleClickOpen}>
                             Log in
                         </Button>
+                        <Dialog
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="form-dialog-title"
+                        >
+                            <DialogTitle id="form-dialog-title">Log in</DialogTitle>
+                            <DialogContent>
+                                <DialogContentText>Log in to see videos</DialogContentText>
+                                <TextField
+                                    autoFocus
+                                    margin="dense"
+                                    id="name"
+                                    label="Email"
+                                    type="email"
+                                    fullWidth
+                                />
+                                <TextField
+                                    margin="dense"
+                                    id="pass"
+                                    label="Password"
+                                    type="password"
+                                    fullWidth
+                                />
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose} color="primary">
+                                    Cancel
+                                </Button>
+                                <Button onClick={handleClose} color="primary">
+                                    Log in
+                                </Button>
+                            </DialogActions>
+                        </Dialog>
                     </Box>
                     <Button color="secondary" variant="contained">
                         Sign Up
