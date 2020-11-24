@@ -27,6 +27,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/dist'),
         filename: '[contenthash].bundle.js',
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -78,6 +79,7 @@ module.exports = {
         contentBase: './dist',
         hot: true,
         port: env.FRONTEND_PORT,
+        historyApiFallback: true,
     },
     resolve: {
         alias: {

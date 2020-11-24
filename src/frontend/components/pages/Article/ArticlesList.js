@@ -66,7 +66,7 @@ function ArticlesList(props) {
                                     color="inherit"
                                     gutterBottom
                                 >
-                                    Web Developer Blog
+                                    Widget News
                                 </Typography>
                                 <Typography variant="h5" paragraph color="inherit" gutterBottom>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -83,7 +83,7 @@ function ArticlesList(props) {
             <div className={classes.mainContent}>
                 <Container maxWidth="md">
                     <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-                        Web Developer Blog
+                        Widget News
                     </Typography>
                     <Typography
                         variant="h5"
