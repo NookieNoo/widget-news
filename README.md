@@ -23,3 +23,5 @@ API_PHP_URL - Локальный хост php
 7. Вывод всех записей по адресу `http://{YOUR_PROJECT}/articles`
 8. Вывод одной `http://{YOUR_PROJECT}/articles/{ID}` пример: (http://blogadvanced.ru/articles/5)
 9. По запросу `?fields={VALUE}` можно вывести отдельные поля. Например: `http://{YOUR_PROJECT}/articles?fields=id,category`
+
+10. dev?
