@@ -6,3 +6,4 @@ public/uploads/*
 *-local.php
 /.env.local
 /.env.*.local
+/src/api/php/vendor/*

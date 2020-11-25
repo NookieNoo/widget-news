@@ -7,3 +7,7 @@ export const apiUrl = process.env.API_URL;
  * иначе обращаемся к php-api
  */
 export const useJsonServer = process.env.API_SOURCE === "JSON_SERVER";
+
+export const getApiUrl = () => {
+    return useJsonServer ? apiUrl : process.env.API_PHP_URL
+};
