@@ -8,7 +8,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update
 
 RUN apt-get install -y --no-install-recommends  apt-utils dialog \
-    software-properties-common nano mc
+    software-properties-common nano mc git
 RUN add-apt-repository -y ppa:ondrej/php
 
 RUN apt-get update
@@ -40,7 +40,9 @@ RUN php -v
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#ADD xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+ADD docker/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+CMD composer install
 
 CMD chown www-data:www-data -R /var/www/html
 
