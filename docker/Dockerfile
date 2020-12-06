@@ -39,3 +39,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 ADD xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 CMD chown www-data:www-data -R /var/www/html/site
+
+CMD apachectl -D FOREGROUND
