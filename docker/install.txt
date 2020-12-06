@@ -1,0 +1,8 @@
+docker-compose build
+docker-compose up -d
+
+nmap 127.0.0.1 -p 22080
+docker-compose ps
+
+docker exec -it container_name bash
+docker-compose down
