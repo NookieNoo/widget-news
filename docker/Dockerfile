@@ -19,6 +19,7 @@ WORKDIR "/var/www/html/site"
 
 #COPY .
 
+#
 RUN a2enmod rewrite
 
 RUN apt-get -y install curl php${PHPV} libapache2-mod-php${PHPV} \
