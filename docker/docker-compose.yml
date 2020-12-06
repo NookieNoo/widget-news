@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  php:
-    build:
-      context: .
-    ports:
-    - 127.0.0.1:22080:80
-    container_name: '${PROJECT_NAME}-php${PHPVERSION}'

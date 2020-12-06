@@ -1,0 +1,13 @@
+<Directory>
+    Options +FollowSymLinks
+
+    IndexIgnore */*
+    RewriteEngine on
+
+    RewriteCond %{REQUEST_URI} !^/(web)
+    RewriteRule (.*) /src/api/php/frontend/web/$1
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /src/api/php/frontend/web/index.php
+</Directory>

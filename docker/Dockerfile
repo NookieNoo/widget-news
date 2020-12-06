@@ -8,17 +8,18 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update
 
 RUN apt-get install -y --no-install-recommends  apt-utils dialog \
-    software-properties-common
+    software-properties-common nano mc
 RUN add-apt-repository -y ppa:ondrej/php
 
 RUN apt-get update
 
 RUN apt-get -y install apache2
 
-WORKDIR "/var/www/html/site"
+WORKDIR "/var/www/html"
 
-#COPY .
+COPY ./ /var/www/html
 
+#COPY ./widget-news.conf /etc/apache2/sites-available/widget-news.conf
 #
 RUN a2enmod rewrite
 
@@ -39,8 +40,8 @@ RUN php -v
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-ADD xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+#ADD xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
-CMD chown www-data:www-data -R /var/www/html/site
+CMD chown www-data:www-data -R /var/www/html
 
 CMD apachectl -D FOREGROUND
