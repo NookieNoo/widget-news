@@ -45,7 +45,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 ADD docker/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
+WORKDIR "/var/www/html/src/api/php"
 RUN composer install
+
+WORKDIR "/var/www/html"
 
 RUN chown www-data:www-data -R /var/www/html
 
