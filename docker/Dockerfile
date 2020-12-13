@@ -5,7 +5,7 @@ ENV PHPV 7.4
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get update
+RUN apt-get update --fix-missing
 
 RUN apt-get install -y --no-install-recommends  apt-utils dialog \
     software-properties-common nano mc git
@@ -18,6 +18,9 @@ RUN apt-get -y install apache2
 WORKDIR "/var/www/html"
 
 COPY ./ /var/www/html
+COPY docker/000-default.conf /etc/apache2/sites-available
+
+RUN /etc/init.d/apache2 restart
 
 #COPY ./widget-news.conf /etc/apache2/sites-available/widget-news.conf
 #
@@ -42,8 +45,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 ADD docker/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
-CMD composer install
+RUN composer install
 
-CMD chown www-data:www-data -R /var/www/html
+RUN chown www-data:www-data -R /var/www/html
 
 CMD apachectl -D FOREGROUND
